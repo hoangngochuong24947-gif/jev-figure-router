@@ -1,4 +1,4 @@
-# figure-router — 统一做图路由与极速决策引擎 (Universal Figure & Diagram Router)
+# jev-figure-router — 统一做图路由与极速决策引擎 (Universal Figure & Diagram Router)
 
 <div align="center">
 
@@ -107,7 +107,7 @@ python3 scripts/fast_route.py -q "测试连通性"
 
 为本项目在 GitHub 仓库打上以下推荐标签，便于社区检索与生态协同：
 
-`jev` `typesafe-jev` `system-1-decision` `ai-agents` `fast-path-routing` `figure-generation` `diagram-as-code` `matplotlib` `archify` `scientific-plotting` `prompt-engineering`
+`jev` `jeb` `typesafe-jev` `system-1-decision` `ai-agents` `fast-path-routing` `figure-generation` `diagram-as-code` `matplotlib` `archify` `scientific-plotting` `prompt-engineering`
 
 ---
 
