@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jev-figure-router Architecture Diagram</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(22, 30, 46, 0.7);
+      --border: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #c084fc;
+      --accent-emerald: #34d399;
+      --accent-amber: #fbbf24;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 50% 0%, #172554 0%, var(--bg) 75%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .header {
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #38bdf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+    .diagram-container {
+      width: 100%;
+      max-width: 960px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+    }
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .node {
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .node:hover rect {
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+      stroke: #38bdf8;
+    }
+    .label {
+      font-size: 13px;
+      font-weight: 600;
+      fill: #ffffff;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .sublabel {
+      font-size: 10px;
+      fill: #94a3b8;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .badge {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      fill: #090d16;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>jev-figure-router</h1>
+    <p class="subtitle">System-1 Fast-Path Decision & Multi-Branch Visual Rendering Architecture</p>
+  </div>
+
+  <div class="diagram-container">
+    <svg viewBox="0 0 900 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#38bdf8" />
+        </marker>
+        <marker id="arrow-emerald" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#34d399" />
+        </marker>
+        <marker id="arrow-purple" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#c084fc" />
+        </marker>
+        <linearGradient id="grad-jev" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#4c1d95" />
+          <stop offset="100%" stop-color="#831843" />
+        </linearGradient>
+      </defs>
+
+      <!-- Input Request -->
+      <g class="node">
+        <rect x="30" y="200" width="160" height="70" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+        <text class="label" x="110" y="228">User Visual Query</text>
+        <text class="sublabel" x="110" y="248">"Draw Nature Band Plot"</text>
+      </g>
+
+      <!-- Arrow to Jev Router -->
+      <path d="M 190 235 L 265 235" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+
+      <!-- Jev System 1 Router -->
+      <g class="node">
+        <rect x="275" y="175" width="200" height="120" rx="14" fill="url(#grad-jev)" stroke="#c084fc" stroke-width="2" />
+        <rect x="290" y="190" width="80" height="18" rx="4" fill="#fbbf24" />
+        <text class="badge" x="330" y="200">SYSTEM-1 &lt; 300ms</text>
+        <text class="label" x="375" y="230">TypeSafe Jev Engine</text>
+        <text class="sublabel" x="375" y="252">Zero Context Overhead</text>
+        <text class="sublabel" x="375" y="268">Confidence &ge; 0.85 &amp; Tool Routing</text>
+      </g>
+
+      <!-- Fast Path Line (Direct Execution) -->
+      <path d="M 475 210 Q 560 140 640 90" stroke="#34d399" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow-emerald)" />
+      <path d="M 475 235 L 640 235" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+      <path d="M 475 260 Q 560 330 640 380" stroke="#c084fc" stroke-width="2" marker-end="url(#arrow-purple)" />
+
+      <!-- Branch 1: Scientific Plots -->
+      <g class="node">
+        <rect x="650" y="55" width="220" height="75" rx="10" fill="#0f172a" stroke="#34d399" stroke-width="1.5" />
+        <text class="label" x="760" y="83">Scientific Plots (Branch 1)</text>
+        <text class="sublabel" x="760" y="103">Matplotlib + SciencePlots</text>
+        <text class="sublabel" x="760" y="117">Nature/Science Vector PDF</text>
+      </g>
+
+      <!-- Branch 2: Architecture & Topology -->
+      <g class="node">
+        <rect x="650" y="195" width="220" height="75" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+        <text class="label" x="760" y="223">Architecture &amp; Flow (Branch 2)</text>
+        <text class="sublabel" x="760" y="243">Archify / Draw.io Academic</text>
+        <text class="sublabel" x="760" y="257">Standalone Interactive SVG/HTML</text>
+      </g>
+
+      <!-- Branch 3 & Others: Slidedeck & Generative -->
+      <g class="node">
+        <rect x="650" y="340" width="220" height="85" rx="10" fill="#0f172a" stroke="#c084fc" stroke-width="1.5" />
+        <text class="label" x="760" y="368">Slides &amp; AI Visuals (Branch 3-6)</text>
+        <text class="sublabel" x="760" y="388">python-pptx / Pymatgen 3D</text>
+        <text class="sublabel" x="760" y="404">Seedream AI / MCP Chart</text>
+      </g>
+    </svg>
+  </div>
+
+</body>
+</html>
